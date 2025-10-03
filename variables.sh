@@ -3,6 +3,6 @@
 PERSON1=$1
 PERSON2=$2
 
-echo "Trump: Hello Putin, welcome to alaska"
-echo "Putin: Hello trump, thanks for inviting me"
-echo "Trump: How is the discussion with ukraine going on"
+echo "$PERSON1: Hello $PERSON2, welcome to alaska"
+echo "$PERSON2: Hello $PERSON1, thanks for inviting me"
+echo "$PERSON1: How is the discussion with ukraine going on"
