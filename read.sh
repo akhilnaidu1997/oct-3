@@ -11,11 +11,11 @@ read -p "3 attempts left" password
 echo "print pawd:$password"
 
 echo "please enter again:"
-read -s -p "2 attempts left" passwd
+read -s -p "two attempts left" passwd
 echo "print pwd: $passwd"
 
 echo "Enter code received"
-read -n "only 3 letters chould be entered" code
+read -n "only three letters chould be entered" code
 echo "Code received: $code"
 
 echo "Enter corrcet code"
