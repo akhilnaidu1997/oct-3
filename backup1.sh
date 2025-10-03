@@ -45,9 +45,9 @@ fi
 
 FILESTOFIND=$(find /home/ec2-user/source-dir/ -name "*.log" -type f -mtime +$DAY)
 
-dnf list installed zip
+dnf list installed zip &>> LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install zip -y
+    dnf install zip -y &>> LOG_FILE
 else
     echo "zip already installed"
 fi
