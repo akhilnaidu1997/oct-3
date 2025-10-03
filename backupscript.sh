@@ -46,7 +46,7 @@ FILES_TO_FIND=$(find $SOURCE -name "*.log" -type f -mtime +$DAY)
 if [ ! -z "$FILES_TO_FIND" ]; then
     echo " Files are found in source"
     TIME_STAMP=$(date +%F-%H-%M)
-    ZIPNAME=$($DEST/TIME_STAMP.zip)
+    ZIPNAME=$($DEST/$TIME_STAMP.zip)
     echo "Zip file name: $ZIPNAME"
     find $SOURCE -name "*.log" -type f -mtime +$DAY | zip -@ -j "$ZIPNAME"
     if [ -f $ZIPNAME ]; then
