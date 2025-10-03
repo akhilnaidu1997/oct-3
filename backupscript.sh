@@ -43,7 +43,7 @@ fi
 
 FILES_TO_FIND=$(find $SOURCE -name "*.log" -type f -mtime +$DAY)
 
-if [ ! -z $FILES_TO_FIND ]; then
+if [ ! -z "$FILES_TO_FIND" ]; then
     echo " Files are found in source"
     TIME_STAMP=$(date +%F-%H-%M)
     ZIPNAME=$($DEST/TIME_STAMP.zip)
