@@ -8,6 +8,6 @@ do
     DISK_USAGE=$(echo "$line" | awk '{print $6}'| cut -d "%" -f1)
     PARTITION=$(echo "$line" | awk '{print $7}')
     if [ $DISK_USAGE -ge $DISK_THRESHOLD ]; then
-        echo "print $PARTITION: $DISK_USAGE"
+        echo "$PARTITION: $DISK_USAGE"
     fi
 done <<< $DISK
