@@ -7,7 +7,7 @@ while IFS= read -r line
 do
     DISK_USAGE=$(echo "$line" | awk '{print $6}'| cut -d "%" -f1)
     PARTITION=$(echo "$line" | awk '{print $7}')
-    if [ $DISK_THRESHOLD -ge 2 ]; then
+    if [ $DISK_USAGE -ge $DISK_THRESHOLD ]; then
         echo "print $PARTITION: $DISK_USAGE"
     fi
 done <<< $DISK
