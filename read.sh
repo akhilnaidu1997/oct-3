@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "what is your username"
-read NAME
+read -s NAME
 
 echo "Print name: $NAME"
