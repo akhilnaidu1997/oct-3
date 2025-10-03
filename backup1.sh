@@ -44,3 +44,9 @@ if [ ! -d $DEST ]; then
 fi
 
 FILESTOFIND=$(find /home/ec2-user/source-dir/ -name "*.log" -type f -mtime +14)
+
+if [ -z "$FILESTOFIND" ]; then
+    echo " files found in source"
+else
+    echo "files does not found"
+fi
