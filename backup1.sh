@@ -43,7 +43,7 @@ if [ ! -d $DEST ]; then
     exit 1
 fi
 
-FILESTOFIND=$(find /home/ec2-user/source-dir/ -name "*.log" -type f -mtime +14)
+FILESTOFIND=$(find /home/ec2-user/source-dir/ -name "*.log" -type f -mtime +$DAY)
 
 dnf list installed zip
 if [ $? -ne 0 ]; then
@@ -57,6 +57,14 @@ if [ ! -z "$FILESTOFIND" ]; then
     TIME=$(date +%F-%H-%M)
     ZIPNAME="$DEST/$TIME.zip"
     echo "zip filename: $ZIPNAME"
+    find /home/ec2-user/source-dir/ -name "*.log" -type f -mtime +$DAY | zip -@ -j "$ZIPNAME"
+    if [ -f $ZIPNAME ]; then
+        echo "Archieval successful"
+        while IFS= read -r line
+        do
+            echo " deleting lines"
+            rm -rf $line
+        done <<< $FILESTOFIND
 else
     echo "files does not found"
 fi
