@@ -45,8 +45,19 @@ fi
 
 FILESTOFIND=$(find /home/ec2-user/source-dir/ -name "*.log" -type f -mtime +14)
 
+dnf list installed zip
+if [ $? -ne 0 ]; then
+    dnf install zip -y
+else
+    echo "zip already installed"
+fi
+
 if [ ! -z "$FILESTOFIND" ]; then
     echo " files found in source"
+    TIME=$(date +%F-%H-%M)
+    ZIPNAME="$DEST/$TIME.zip"
+    echo "zip filename: $ZIPNAME"
 else
     echo "files does not found"
 fi
+
