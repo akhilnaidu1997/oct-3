@@ -4,5 +4,5 @@ DISK=$(df -hT |grep -v  Filesystem)
 
 while IFS= read -r line
 do
-    echo "line: $line"
+    DISK_USAGE=$(echo "$line" | awk '{print $6}')
 done <<< $DISK
