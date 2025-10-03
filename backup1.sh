@@ -32,3 +32,13 @@ USAGE(){
 if [ $# -ne 2 ]; then
     USAGE
 fi
+
+if [ ! -d $SOURCE ]; then
+    echo "ERROR: source directory doesnot exists"
+    exit 1
+fi
+
+if [ ! -d $DEST ]; then
+    echo "ERROR: Dest directory doesnot exists"
+    exit 1
+fi
