@@ -65,6 +65,9 @@ if [ ! -z "$FILESTOFIND" ]; then
             echo " deleting lines"
             rm -rf $line
         done <<< $FILESTOFIND
+    else
+        echo "Archieval failed"
+    fi
 else
     echo "files does not found"
 fi
