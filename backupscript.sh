@@ -48,6 +48,18 @@ if [ ! -z $FILES_TO_FIND ]; then
     TIME_STAMP=$(date +%F-%H-%M)
     ZIPNAME=$($DEST/TIME_STAMP.zip)
     echo "Zip file name: $ZIPNAME"
+    find $SOURCE -name "*.log" -type f -mtime +$DAY | zip -@ -j "$ZIPNAME"
+    if [ -f $ZIPNAME ]; then
+        echo "Archieval is success"
+        while IFS= read -r line
+        do
+            echo "Deleting files"
+            rm -rf $line
+        done <<< $FILES_TO_FIND
+    else
+        echo "Archieval failed"
+    fi
+
 else
     echo "files didnot found"
 fi
