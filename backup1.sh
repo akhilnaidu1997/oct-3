@@ -42,3 +42,5 @@ if [ ! -d $DEST ]; then
     echo "ERROR: Dest directory doesnot exists"
     exit 1
 fi
+
+FILESTOFIND=$(find /home/ec2-user/source-dir/ -name "*.log" -type f -mtime +14)
